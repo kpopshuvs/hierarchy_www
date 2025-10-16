@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIERARCHY JIU-JITSU ACADEMY</title>
+  
+  <!-- FontAwesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #F8F8FF;
+      font-family: Helvetica Neue, helvetica, "HB TC", "HB JP", "HB KR", arial, "segoe ui", "microsoft jhenghei", "microsoft mhei", stheititc, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      width: 100%;
+      position: relative;
+      padding: 20px 40px;
+      height: 10px; 
+    }
+
+    .social-icons {
+      position: absolute;
+      top: 20px;
+      right: 80px; 
+      display: flex;
+      gap: 20px;
+    }
+
+    .social-icons a {
+      color: #000;
+      font-size: 18px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      color: #888;
+    }
+
+    .logo {
+      margin-top: 100px;
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+    }
+
+    .bg-logo {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: url('01_primary_logo_vector_black.png') no-repeat center center;
+      background-size: contain;
+      width: 500px;
+      height: 500px;
+      opacity: 0.02; 
+      z-index: 0;
+      pointer-events: none;
+    }
+
+
+    nav {
+      margin-top: 40px;
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #000;
+      font-size: 12px;
+      font-weight: 500;
+      transition: color 0.2s ease;
+      text-transform: uppercase;
+    }
+
+    nav a:hover {
+      color: #888;
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="social-icons">
+      <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+      <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    </div>
+  </header>
+
+  <!-- Centered logo -->
+  <img class="logo" src="name_logo_vector_web.png" alt="Main Logo" />
+
+  <nav>
+    <a href="#">About</a>
+    <a href="#">Schedule</a>
+    <a href="#">Pricing</a>
+    <a href="#">Store</a>
+    <a href="#">Contact</a>
+  </nav>
+  <div class="bg-logo"></div>
+
+</body>
+</html>
