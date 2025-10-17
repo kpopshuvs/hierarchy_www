@@ -48,9 +48,10 @@ p, li {
 .main-container {
   flex: 1;
   width: 100%;
-  max-width: 800px;
+  max-width: 960px;
   margin: 0 auto;
-  padding-bottom: 60px; /* space for footer */
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 .page-content {
@@ -117,9 +118,8 @@ header {
 -------------------------- */
 .logo {
   display: block;
-  margin: 100px auto 40px;
-  max-width: 700px;
-  width: 100%;
+  margin: 60px auto 20px auto; /* center */
+  max-width: 25%;
   height: auto;
 }
 
@@ -330,20 +330,52 @@ footer {
    RESPONSIVE
 -------------------------- */
 @media (max-width: 768px) {
-  .schedule-grid {
-    font-size: 10px;
+  nav {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  .logo {
+    margin-top: 40px;
+    max-width: 260px;
+  }
+
+  .social-icons,
+  .footer-social-icons {
+    justify-content: center;
+    right: 0;
+    left: 0;
+    top: auto;
+    position: relative;
+    margin-top: 20px;
   }
 
   .content {
     font-size: 14px;
     padding: 0 10px;
+    text-align: center;
   }
 
-  .social-icons {
-    right: 20px;
+  .class-description-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+
+  .schedule-grid {
+    min-width: 600px; /* allow horizontal scroll if needed */
+  }
+
+  footer {
+    padding: 30px 20px;
+    text-align: center;
   }
 
   .popup-content {
+    width: 90%;
+    max-width: 90%;
     padding: 20px;
   }
+}
+
 }
