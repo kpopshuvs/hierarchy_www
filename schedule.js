@@ -1,5 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  const days = [
+    { key: "Mon", label: "MONDAY" },
+    { key: "Tue", label: "TUESDAY" },
+    { key: "Wed", label: "WEDNESDAY" },
+    { key: "Thu", label: "THURSDAY" },
+    { key: "Fri", label: "FRIDAY" },
+    { key: "Sat", label: "SATURDAY" },
+    { key: "Sun", label: "SUNDAY" }
+  ];
+
   const timeSlots = [
     "5:30 AM", "6:30 AM", "7:30 AM", "8:30 AM", "9:30 AM", "10:30 AM",
     "11:30 AM", "12:30 PM", "1:30 PM", "2:30 PM", "3:30 PM", "4:30 PM",
@@ -30,43 +39,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const scheduleGrid = document.querySelector(".schedule-grid");
 
-  // Add only day headers (no Time)
-  days.forEach(day => {
+  // Add day headers
+  days.forEach(({ label }) => {
     const dayCell = document.createElement("div");
     dayCell.classList.add("time-slot", "day-header");
-    dayCell.textContent = day;
+    dayCell.textContent = label;
     scheduleGrid.appendChild(dayCell);
   });
 
-  // Helper to calculate 1-hour end time
+  // Helper: get end time for a 1-hour block
   function getEndTime(startTime) {
     const [time, meridian] = startTime.split(" ");
     let [hour, minute] = time.split(":").map(Number);
-
     hour += 1;
+
+    let newMeridian = meridian;
     if (hour === 12) {
-      return `${hour}:${minute.toString().padStart(2, "0")} ${meridian === "AM" ? "PM" : "AM"}`;
+      newMeridian = meridian === "AM" ? "PM" : "AM";
     } else if (hour > 12) {
       hour -= 12;
     }
-    return `${hour}:${minute.toString().padStart(2, "0")} ${meridian}`;
+
+    return `${hour}:${minute.toString().padStart(2, "0")} ${newMeridian}`;
   }
 
   // Loop over each time slot
   timeSlots.forEach(startTime => {
     const endTime = getEndTime(startTime);
 
-    // Check if any class exists for this time
-    const hasAnyClass = days.some(day => scheduleData[startTime]?.[day]);
+    const hasAnyClass = days.some(({ key }) => scheduleData[startTime]?.[key]);
 
-    if (!hasAnyClass) return; // Skip this row if no classes at this time
+    if (!hasAnyClass) return;
 
-    // If at least one class exists, generate cells for each day
-    days.forEach(day => {
+    days.forEach(({ key }) => {
       const cell = document.createElement("div");
       cell.classList.add("time-slot");
 
-      const classInfo = scheduleData[startTime]?.[day];
+      const classInfo = scheduleData[startTime]?.[key];
       if (classInfo) {
         const classBlock = document.createElement("div");
         classBlock.className = "class-block";

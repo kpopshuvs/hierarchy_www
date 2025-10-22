@@ -7,10 +7,10 @@
    GLOBAL / BODY
 -------------------------- */
 @font-face {
-  font-family: 'Eastman Grotesque';
-  src: url('Eastman-Grotesque-Bold-Italic-trial.otf') format('opentype');
+  font-family: 'Druk Cy Gr Web';
+  src: url('Druk Wide Cy Web Bold Regular.otf') format('opentype');
   font-weight: bold;
-  font-style: italic;
+  font-style: normal;
 }
 
 body {
@@ -29,12 +29,6 @@ body {
 /* -------------------------
    TYPOGRAPHY
 -------------------------- */
-h1, h2, h3, h4 {
-  font-family: 'Eastman Grotesque', sans-serif;
-  font-weight: bold;
-  font-style: italic;
-  text-transform: uppercase;
-}
 
 
 p, li {
@@ -203,6 +197,11 @@ nav a:hover::after,
 nav a.active::after {
   transform: scaleY(1);
   opacity: 1;
+}
+
+h1, h2, h3, h4, h5, h6,
+nav a {
+  font-family: 'Druk Cy Gr Web', sans-serif;
 }
 
 /* -------------------------
